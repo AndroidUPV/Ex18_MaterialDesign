@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2022
+  ~ David de Andrés and Juan Carlos Ruiz
+  ~ Development of apps for mobile devices
+  ~ Universitat Politècnica de València
+  -->
+
+<resources>
+    <array name="card_text_size">
+        <item>12sp</item>
+        <item>16sp</item>
+        <item>24sp</item>
+        <item>30sp</item>
+        <item>48sp</item>
+        <item>60sp</item>
+    </array>
+    <array name="overview_text_size">
+        <item>16sp</item>
+        <item>24sp</item>
+        <item>30sp</item>
+        <item>48sp</item>
+        <item>60sp</item>
+    </array>
+</resources>
