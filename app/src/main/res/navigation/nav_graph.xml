@@ -24,5 +24,13 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="upv.dadm.ex18_materialdesign.ui.fragments.MovieDetailFragment"
-        android:label="@string/movie_detail" />
+        android:label="@string/movie_detail" >
+        <action
+            android:id="@+id/actionAddComment"
+            app:destination="@id/addCommentBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/addCommentBottomSheet"
+        android:name="upv.dadm.ex18_materialdesign.ui.fragments.AddCommentBottomSheet"
+        android:label="@string/add_comment" />
 </navigation>

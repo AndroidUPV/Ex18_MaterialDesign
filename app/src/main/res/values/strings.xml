@@ -11,11 +11,18 @@
     <string name="movies_list">Movies in theatres</string>
     <!--Strings for MovieDetailFragment-->
     <string name="poster_description">Poster of the movie</string>
-    <string name="fab_description">Open movie\'s website</string>
+    <string name="fab_website_description">Open movie\'s website</string>
+    <string name="fab_comment_description">Add a comment</string>
     <string name="movie_detail">Movie detail</string>
     <!--Strings for BottomSheet filter-->
     <string name="filter_by_genre">Filter by genre</string>
     <string name="select_all">Select all</string>
     <string name="clear_all">Clear all</string>
     <string name="no_movies">No movies matching the selected genres</string>
+    <!--Strings for BottomSheet to add a comment-->
+    <string name="user_name_hint">Name</string>
+    <string name="email_hint">Email</string>
+    <string name="add_comment">Add comment</string>
+    <string name="comment_added">Your comment has been successfully added!</string>
+    <string name="comment_hint">Comment</string>
 </resources>

@@ -15,6 +15,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import upv.dadm.ex18_materialdesign.R
 import upv.dadm.ex18_materialdesign.databinding.FragmentMovieDetailBinding
 import upv.dadm.ex18_materialdesign.model.Movie
@@ -46,6 +47,9 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
 
         // Launch an implicit Intent to access the movie's website
         binding.fabWebsite.setOnClickListener { accessMovieWebsite() }
+
+        // Add a comment to the movie (fake, it actually does nothing)
+        binding.fabComment.setOnClickListener { addComment() }
     }
 
     override fun onDestroyView() {
@@ -79,5 +83,12 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
         val intent = Intent().setAction(Intent.ACTION_VIEW)
             .setData(Uri.parse(viewModel.selectedMovie.value?.link))
         requireActivity().startActivity(intent)
+    }
+
+    /**
+     * Displays the form to add the comment to the movie.
+     */
+    private fun addComment() {
+        findNavController().navigate(R.id.actionAddComment)
     }
 }
