@@ -5,21 +5,24 @@
   ~ Universitat Politècnica de València
   -->
 
+<!--Displays the list of movies and a BottomSheet to filter them by genre-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayoutFilms"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="?attr/actionBarSize">
+    android:layout_height="match_parent">
 
+    <!--RecyclerView displaying the list of movies-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewFilms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/film_item" />
+        tools:listitem="@layout/movie_item" />
 
+    <!--BottomSheet to filter movies by genre-->
     <include
         android:id="@+id/bottomSheet"
         layout="@layout/bottom_sheet_filter" />

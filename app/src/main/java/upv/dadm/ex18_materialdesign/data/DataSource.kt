@@ -10,8 +10,14 @@ package upv.dadm.ex18_materialdesign.data
 import upv.dadm.ex18_materialdesign.model.Genre
 import upv.dadm.ex18_materialdesign.model.Movie
 
+/**
+ * Provides data for movies and genres.
+ */
 object DataSource {
 
+    /**
+     * Returns the full list of movies in theatres.
+     */
     fun getMovies() = listOf(
         Movie(
             76600,
@@ -155,28 +161,10 @@ object DataSource {
         )
     )
 
-    fun filterMoviesByGenre(genresList: List<Int>): List<Movie> =
-        getMovies().filter { movie ->
-            movie.genres.any { genre -> genre in genresList }
-        }
-
-    fun getGenres() = mapOf(
-        12 to "Adventure",
-        14 to "Fantasy",
-        16 to "Animation",
-        18 to "Drama",
-        27 to "Horror",
-        28 to "Action",
-        35 to "Comedy",
-        36 to "History",
-        53 to "Thriller",
-        80 to "Crime",
-        878 to "Science Fiction",
-        9648 to "Mystery",
-        10751 to "Family"
-    )
-
-    fun getGenresList() = mutableListOf(
+    /**
+     * Returns the full list of movie genres.
+     */
+    fun getGenresList() = listOf(
         Genre(12, "Adventure"),
         Genre(14, "Fantasy"),
         Genre(16, "Animation"),
@@ -191,5 +179,14 @@ object DataSource {
         Genre(9648, "Mystery"),
         Genre(10751, "Family")
     )
+
+    /**
+     * Returns the list of movies that belong to any of the provided genres.
+     */
+    fun filterMoviesByGenre(genresList: List<Int>): List<Movie> =
+        getMovies().filter { movie ->
+            movie.genres.any { genre -> genre in genresList }
+        }
+
 
 }

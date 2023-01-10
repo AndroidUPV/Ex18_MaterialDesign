@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
-            android:autoSizePresetSizes="@array/card_text_size"
+            android:autoSizePresetSizes="@array/movie_title_size"
             android:autoSizeTextType="uniform"
             android:background="@color/card_background"
             android:gravity="center"

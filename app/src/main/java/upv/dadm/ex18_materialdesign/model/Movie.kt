@@ -7,6 +7,9 @@
 
 package upv.dadm.ex18_materialdesign.model
 
+/**
+ * A movie object consisting of its id, title, overview, website link, and list of genres.
+ */
 data class Movie(
     val id: Int,
     val title: String,

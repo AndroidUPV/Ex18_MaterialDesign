@@ -4,7 +4,10 @@
   ~ Development of apps for mobile devices
   ~ Universitat Politècnica de València
   -->
-
+<!--
+  ~ Defines the navigation actions for each Fragment.
+  ~ The starting Fragment is MoviesListFragment.
+  -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"

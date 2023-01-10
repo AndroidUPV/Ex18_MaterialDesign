@@ -4,10 +4,9 @@
   ~ Development of apps for mobile devices
   ~ Universitat Politècnica de València
   -->
-
+<!--Chip to filter movies according to the selected genre-->
 <com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/chipGenre"
     style="@style/Widget.Material3.Chip.Filter"
     android:layout_width="wrap_content"

@@ -12,14 +12,15 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!--Set the style for the Actionbar-->
         <item name="toolbarStyle">@style/ToolBarStyle</item>
     </style>
-
+    <!--Style for the custom Toolbar-->
     <style name="ToolBarStyle" parent="@style/Widget.Material3.Toolbar.Surface">
         <item name="titleTextColor">@color/white</item>
         <item name="materialThemeOverlay">@style/ToolbarThemeOverlay</item>
     </style>
-
+    <!--ThemeOverlay for the custom Toolbar-->
     <style name="ToolbarThemeOverlay" parent="">
         <item name="actionMenuTextColor">@color/white</item>
         <item name="colorSurface">@color/purple_700</item>

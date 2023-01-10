@@ -1,11 +1,8 @@
-# Ex12_ActionBarAndMenus
+# Ex18_MaterialDesign
 Lecture 02 - Development of Graphical User Interfaces (GUI)
 
-The user can navigate through levels and levels of fragments, going deeper and deeper. 
-- A single ViewModel is shared between the Fragments to access the visibility of the help text.
-- A custom ToolBar is set up as the ActionBar of the app.
-- The ActionBar displays the action elements provided by the Fragments that implement the MenuProvider interface. 
-- The action elements display the current level of the Fragment and can hide/show the help text.
-- Beyond the first level, an action view allows the user to set the number of levels to move forward.
-- Navigation between Fragments automatically changes the title of the ActionBar.
-- Up navigation is properly handled by the NavController in the Activity.
+The app displays a list of 20 movies currently in theatres (Christmas 2022).
+- A single ViewModel is shared between the Fragments to access access all information about items to display.
+- A custom (and themed) ToolBar is set up as the ActionBar of the app. It is enclosed within an AppBarLayout, which is also within a CoordinatorLayout, to enable responding to scrolling events from the RecyclerView.
+- A standard (permanent) BottomSheet enables filtering the list of movies according to selected genres (Chips within a ChipGroup). A Snackbar displays a message when no movie matches the selected genres (it can be swiped to dismiss it as it is also enclosed within a CoordinatorLayout).
+- The details of the movie (cover, overview) are displayed upon clicking on any item in the RecyclerView. A FloatingActionButton gives access the movie's official website.
