@@ -26,11 +26,11 @@ class MoviesViewModel : ViewModel() {
     private var _chipViewsMap = MutableLiveData(mapOf<Int, Int>())
     val chipViewsMap: LiveData<Map<Int, Int>> = _chipViewsMap
 
-    private var _selectedGenres = MutableLiveData(listOf<Int>())
-    val selectedGenres: LiveData<List<Int>> = _selectedGenres
-
-    private var _scrollPosition: MutableLiveData<Int> = MutableLiveData(0)
+    private var _scrollPosition = MutableLiveData(0)
     val scrollPosition: LiveData<Int> = _scrollPosition
+
+    private var _isCommentAdded = MutableLiveData(false)
+    val isCommentAdded: LiveData<Boolean> = _isCommentAdded
 
     fun setSelectedMovie(position: Int) {
         _selectedMovie.value = _movies.value?.get(position)
@@ -46,7 +46,6 @@ class MoviesViewModel : ViewModel() {
 
     fun setSelectedGenres(viewIdsList: List<Int>) {
         val genresList = mutableListOf<Int>()
-        _selectedGenres.value = viewIdsList
         var genreId: Int?
         viewIdsList.forEach { viewId ->
             genreId = _chipViewsMap.value?.get(viewId)
@@ -55,6 +54,10 @@ class MoviesViewModel : ViewModel() {
             }
         }
         _movies.value = DataSource.filterMoviesByGenre(genresList)
+    }
+
+    fun setCommentAdded(added: Boolean) {
+        _isCommentAdded.value = added
     }
 
 }

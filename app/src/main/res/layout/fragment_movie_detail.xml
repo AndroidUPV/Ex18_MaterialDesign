@@ -6,71 +6,79 @@
   -->
 
 <!--Displays a movie cover, overview, and link to its website-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clDetail"
+    android:id="@+id/coordinatorLayoutDetail"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/p19995">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/p19995">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.66" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.33" />
 
-    <!--Text automatically sizes between 12-48sp in steps of 2sp-->
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvOverview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:autoSizeMinTextSize="12sp"
-        android:autoSizeStepGranularity="2sp"
-        android:autoSizeTextType="uniform"
-        android:background="@color/card_background"
-        android:gravity="center"
-        android:scrollbars="vertical"
-        android:textColor="@color/white"
-        app:autoSizeMaxTextSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        tools:text="In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization." />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.66" />
 
-    <!--FloatingActionButton enables adding a comment to the movie-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabComment"
-        style="?attr/floatingActionButtonSmallStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="?attr/colorAccent"
-        android:contentDescription="@string/fab_comment_description"
-        android:src="@drawable/ic_add_comment"
-        app:layout_constraintBottom_toTopOf="@id/fabWebsite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="?attr/colorOnSecondary" />
+        <!--Text automatically sizes between 12-48sp in steps of 2sp-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvOverview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeStepGranularity="2sp"
+            android:autoSizeTextType="uniform"
+            android:background="@color/card_background"
+            android:gravity="center"
+            android:scrollbars="vertical"
+            android:textColor="@color/white"
+            app:autoSizeMaxTextSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2"
+            tools:text="In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization." />
 
-    <!--FloatingActionButton provides access to the movie's website-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabWebsite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="?attr/colorPrimary"
-        android:contentDescription="@string/fab_website_description"
-        android:src="@drawable/ic_website"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--FloatingActionButton enables adding a comment to the movie-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabComment"
+            style="?attr/floatingActionButtonSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="?attr/colorAccent"
+            android:contentDescription="@string/fab_comment_description"
+            android:src="@drawable/ic_add_comment"
+            app:layout_constraintBottom_toTopOf="@id/fabWebsite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="?attr/colorOnSecondary" />
+
+        <!--FloatingActionButton provides access to the movie's website-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabWebsite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:contentDescription="@string/fab_website_description"
+            android:src="@drawable/ic_website"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

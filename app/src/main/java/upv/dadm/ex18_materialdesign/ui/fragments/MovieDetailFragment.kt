@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import upv.dadm.ex18_materialdesign.R
 import upv.dadm.ex18_materialdesign.databinding.FragmentMovieDetailBinding
 import upv.dadm.ex18_materialdesign.model.Movie
@@ -50,6 +51,9 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
 
         // Add a comment to the movie (fake, it actually does nothing)
         binding.fabComment.setOnClickListener { addComment() }
+
+        // Display a message to confirm that the comment has been added to the movie
+        viewModel.isCommentAdded.observe(viewLifecycleOwner) { added -> commentAdded(added) }
     }
 
     override fun onDestroyView() {
@@ -90,5 +94,22 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
      */
     private fun addComment() {
         findNavController().navigate(R.id.actionAddComment)
+    }
+
+    /**
+     * Display a message to acknowledge the comment has been added.
+     */
+    private fun commentAdded(added: Boolean) {
+        if (added) {
+            // Display the message
+            Snackbar.make(
+                binding.coordinatorLayoutDetail,
+                R.string.comment_added,
+                Snackbar.LENGTH_SHORT
+            ).setAnchorView(binding.fabComment)
+                .show()
+            // Deactivate the flag from the ViewModel
+            viewModel.setCommentAdded(false)
+        }
     }
 }
