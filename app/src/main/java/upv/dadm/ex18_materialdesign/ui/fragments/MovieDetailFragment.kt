@@ -106,8 +106,7 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
                 binding.coordinatorLayoutDetail,
                 R.string.comment_added,
                 Snackbar.LENGTH_SHORT
-            ).setAnchorView(binding.fabComment)
-                .show()
+            ).show()
             // Deactivate the flag from the ViewModel
             viewModel.setCommentAdded(false)
         }
