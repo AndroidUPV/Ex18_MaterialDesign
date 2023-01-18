@@ -74,7 +74,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
         setUpChips()
         // Update the list of selected genres (Chips Ids) whenever the state of the ChipGroup changes
         binding.bottomSheet.cgGenre.setOnCheckedStateChangeListener { _, ids ->
-            viewModel.setSelectedGenres(ids)
+            viewModel.getMoviesByGenre(ids)
         }
 
     }
