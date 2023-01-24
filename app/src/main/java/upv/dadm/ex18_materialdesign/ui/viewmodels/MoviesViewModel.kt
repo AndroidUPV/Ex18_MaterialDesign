@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModel
 import upv.dadm.ex18_materialdesign.data.DataSource
 import upv.dadm.ex18_materialdesign.model.Movie
 
+/**
+ * Holds information related to the list of movies.
+ */
 class MoviesViewModel : ViewModel() {
 
     // Backing property for the list of movies (default list provided by DataSource)
