@@ -1,8 +1,12 @@
 /*
- * Copyright (c) 2022
- * David de Andrés and Juan Carlos Ruiz
- * Development of apps for mobile devices
- * Universitat Politècnica de València
+ * Copyright (c) 2022-2023 Universitat Politècnica de València
+ * Authors: David de Andrés and Juan Carlos Ruiz
+ *          Fault-Tolerant Systems
+ *          Instituto ITACA
+ *          Universitat Politècnica de València
+ *
+ * Distributed under MIT license
+ * (See accompanying file LICENSE.txt)
  */
 
 package upv.dadm.ex18_materialdesign.ui.viewmodels
@@ -19,13 +23,13 @@ import upv.dadm.ex18_materialdesign.model.Movie
 class MoviesViewModel : ViewModel() {
 
     // Backing property for the list of movies (default list provided by DataSource)
-    private var _movies = MutableLiveData(DataSource.getMovies())
+    private val _movies = MutableLiveData(DataSource.getMovies())
 
     // List of movies
     val movies: LiveData<List<Movie>> = _movies
 
     // Backing property for the currently selected movie (null by default)
-    private var _selectedMovie: MutableLiveData<Movie> = MutableLiveData()
+    private val _selectedMovie: MutableLiveData<Movie> = MutableLiveData()
 
     // Currently selected movie
     val selectedMovie: LiveData<Movie> = _selectedMovie
@@ -34,20 +38,20 @@ class MoviesViewModel : ViewModel() {
     val genresList = DataSource.getGenresList()
 
     // Backing property for the map between chips Ids and movie genres (empty by default)
-    private var _chipViewsMap = MutableLiveData(mapOf<Int, Int>())
+    private val _chipViewsMap = MutableLiveData(mapOf<Int, Int>())
 
-    // Map betweeb chips Ids and movie genres
+    // Map between chips Ids and movie genres
     val chipViewsMap: LiveData<Map<Int, Int>> = _chipViewsMap
 
     // Backing property for the current position of the RecyclerView
     // (position of the top visible element, default is 0)
-    private var _scrollPosition = MutableLiveData(0)
+    private val _scrollPosition = MutableLiveData(0)
 
     // Current position of the RecyclerView (position of the top visible element)
     val scrollPosition: LiveData<Int> = _scrollPosition
 
     // Backing property for whether a comment has been added (false by default)
-    private var _isCommentAdded = MutableLiveData(false)
+    private val _isCommentAdded = MutableLiveData(false)
 
     // Whether a comment has been added
     val isCommentAdded: LiveData<Boolean> = _isCommentAdded

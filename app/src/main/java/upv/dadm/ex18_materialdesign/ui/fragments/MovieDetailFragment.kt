@@ -1,8 +1,12 @@
 /*
- * Copyright (c) 2022
- * David de Andrés and Juan Carlos Ruiz
- * Development of apps for mobile devices
- * Universitat Politècnica de València
+ * Copyright (c) 2022-2023 Universitat Politècnica de València
+ * Authors: David de Andrés and Juan Carlos Ruiz
+ *          Fault-Tolerant Systems
+ *          Instituto ITACA
+ *          Universitat Politècnica de València
+ *
+ * Distributed under MIT license
+ * (See accompanying file LICENSE.txt)
  */
 
 package upv.dadm.ex18_materialdesign.ui.fragments
@@ -10,9 +14,13 @@ package upv.dadm.ex18_materialdesign.ui.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -78,6 +86,15 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
                 requireContext().theme
             )
         binding.fabWebsite.isVisible = movie.link.isNotEmpty()
+        // If the main FAB is not visible, change the small FAB layout properties
+        // to set it at the bottom-end of the screen
+        if (movie.link.isEmpty()) {
+            binding.fabComment.updateLayoutParams<CoordinatorLayout.LayoutParams> {
+                anchorId = View.NO_ID
+                gravity = Gravity.BOTTOM or Gravity.END
+            }
+        }
+
     }
 
     /**
