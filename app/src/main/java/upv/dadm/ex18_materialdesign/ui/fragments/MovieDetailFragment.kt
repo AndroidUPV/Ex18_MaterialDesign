@@ -22,8 +22,12 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 import upv.dadm.ex18_materialdesign.R
 import upv.dadm.ex18_materialdesign.databinding.FragmentMovieDetailBinding
 import upv.dadm.ex18_materialdesign.model.Movie
@@ -59,8 +63,12 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
         // Add a comment to the movie (fake, it actually does nothing)
         binding.fabComment.setOnClickListener { addComment() }
 
-        // Display a message to confirm that the comment has been added to the movie
-        viewModel.isCommentAdded.observe(viewLifecycleOwner) { added -> commentAdded(added) }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Display a message to confirm that the comment has been added to the movie
+                viewModel.isCommentAdded.collect { added -> commentAdded(added) }
+            }
+        }
     }
 
     override fun onDestroyView() {

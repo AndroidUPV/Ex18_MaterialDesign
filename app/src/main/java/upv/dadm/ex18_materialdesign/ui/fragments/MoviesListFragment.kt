@@ -18,11 +18,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 import upv.dadm.ex18_materialdesign.R
 import upv.dadm.ex18_materialdesign.databinding.FragmentMoviesListBinding
 import upv.dadm.ex18_materialdesign.model.Movie
@@ -57,10 +61,15 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
         binding.recyclerViewFilms.adapter = adapter
         // Keep the previous position of the LinearLayoutManager (if any, to top (0) otherwise)
         (binding.recyclerViewFilms.layoutManager as LinearLayoutManager).scrollToPosition(
-            viewModel.scrollPosition.value ?: 0
+            viewModel.scrollPosition.value
         )
-        // Submit a new list to be displayed whenever the list of movies changes (due to filtering)
-        viewModel.movies.observe(viewLifecycleOwner) { movies -> updateMovieList(movies) }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Submit a new list to be displayed whenever the list of movies changes (due to filtering)
+                viewModel.movies.collect { movies -> updateMovieList(movies) }
+            }
+        }
 
         // Get the BottomSheetBehavior from the BottomSheet
         bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet.bottomSheetFrameLayout)
@@ -113,8 +122,10 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
         when (bottomSheetBehavior.state) {
             BottomSheetBehavior.STATE_COLLAPSED -> bottomSheetBehavior.state =
                 BottomSheetBehavior.STATE_EXPANDED
+
             BottomSheetBehavior.STATE_EXPANDED -> bottomSheetBehavior.state =
                 BottomSheetBehavior.STATE_COLLAPSED
+
             else -> {}
         }
     }
@@ -142,7 +153,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
             chip.apply {
                 // Obtain the keys for any key-value pair matching a given movie genre
                 keys =
-                    viewModel.chipViewsMap.value?.filter { entry -> entry.value == genre.id }?.keys
+                    viewModel.chipViewsMap.value.filter { entry -> entry.value == genre.id }.keys
                 // If there is no key yet then automatically generate a new one and
                 // associate it to the movie genre
                 if (keys.isNullOrEmpty()) {
