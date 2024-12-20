@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2022-2023 Universitat Politècnica de València
+  ~ Copyright (c) 2022-2024 Universitat Politècnica de València
   ~ Authors: David de Andrés and Juan Carlos Ruiz
   ~          Fault-Tolerant Systems
   ~          Instituto ITACA
@@ -21,7 +21,7 @@
         android:id="@+id/clDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/p19995">
+        tools:background="@drawable/p19995">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/margins"
         android:backgroundTint="?attr/colorAccent"
         android:contentDescription="@string/fab_comment_description"
         android:src="@drawable/ic_add_comment"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/margins"
         android:backgroundTint="?attr/colorPrimary"
         android:contentDescription="@string/fab_website_description"
         android:src="@drawable/ic_website"

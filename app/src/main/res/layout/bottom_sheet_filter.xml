@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2022-2023 Universitat Politècnica de València
+  ~ Copyright (c) 2022-2024 Universitat Politècnica de València
   ~ Authors: David de Andrés and Juan Carlos Ruiz
   ~          Fault-Tolerant Systems
   ~          Instituto ITACA
@@ -40,7 +40,7 @@
             android:id="@+id/tvTitleBottomSheet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
+            android:paddingBottom="@dimen/margins"
             android:text="@string/filter_by_genre"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="?attr/colorPrimary"
@@ -70,8 +70,8 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/margins"
+            android:layout_marginBottom="@dimen/margins"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bSelectAll" />
@@ -81,8 +81,8 @@
             android:id="@+id/cgGenre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/margins"
+            android:layout_marginEnd="@dimen/margins"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider"

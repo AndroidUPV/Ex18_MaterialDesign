@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Universitat Politècnica de València
+ * Copyright (c) 2022-2024 Universitat Politècnica de València
  * Authors: David de Andrés and Juan Carlos Ruiz
  *          Fault-Tolerant Systems
  *          Instituto ITACA
@@ -13,8 +13,8 @@ package upv.dadm.ex18_materialdesign.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.generateViewId
 import android.widget.FrameLayout
-import androidx.core.view.ViewCompat
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -157,7 +157,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
                 // If there is no key yet then automatically generate a new one and
                 // associate it to the movie genre
                 if (keys.isNullOrEmpty()) {
-                    id = ViewCompat.generateViewId()
+                    id = generateViewId()
                     viewModel.addChipViewIdToMap(id, genre.id)
                 } else {
                     // Set the retrieved id as the view Id
