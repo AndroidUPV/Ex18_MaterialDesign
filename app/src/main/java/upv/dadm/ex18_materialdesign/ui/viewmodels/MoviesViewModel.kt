@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Universitat Politècnica de València
+ * Copyright (c) 2022-2026 Universitat Politècnica de València
  * Authors: David de Andrés and Juan Carlos Ruiz
  *          Fault-Tolerant Systems
  *          Instituto ITACA
@@ -92,7 +92,7 @@ class MoviesViewModel : ViewModel() {
             genreId = _chipViewsMap.value[viewId]
             // Add this genre Id to the list
             if (genreId != null) {
-                genresList.add(genreId!!)
+                genresList.add(genreId)
             }
         }
         // Get from DataSource the list of movies filtered by the list of genres Ids

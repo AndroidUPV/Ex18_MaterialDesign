@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Universitat Politècnica de València
+ * Copyright (c) 2022-2026 Universitat Politècnica de València
  * Authors: David de Andrés and Juan Carlos Ruiz
  *          Fault-Tolerant Systems
  *          Instituto ITACA
@@ -145,7 +145,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
      */
     private fun setUpChips() {
         var chip: Chip
-        var keys: Set<Int>?
+        var keys: Set<Int>
         // Create a new Chip for each movie genre
         viewModel.genresList.forEach { genre ->
             // Inflate the View
@@ -156,12 +156,12 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
                     viewModel.chipViewsMap.value.filter { entry -> entry.value == genre.id }.keys
                 // If there is no key yet then automatically generate a new one and
                 // associate it to the movie genre
-                if (keys.isNullOrEmpty()) {
+                if (keys.isEmpty()) {
                     id = generateViewId()
                     viewModel.addChipViewIdToMap(id, genre.id)
                 } else {
                     // Set the retrieved id as the view Id
-                    id = keys!!.first()
+                    id = keys.first()
                 }
                 text = genre.name
                 isChecked = true
